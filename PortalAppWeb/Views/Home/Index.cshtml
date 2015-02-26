@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Citrix · Data Marketplace";
+}
+
+<script type="text/javascript">
+
+    $(function () {
+        ucSearch.ShowImgsOpenForBeta = true;
+    });
+
+</script>
+
+<div id="Home" class="container PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("Pages/UC_Home");
+    }
+</div>
+
+<div id="Search" class="container-fluid search_page_template PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("../Shared/UserControls/UC_Search");
+    }
+</div>
+
+<div id="Site-Help" class="container-fluid PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("Pages/UC_Help");
+    }
+</div>
+
+<div id="Pilars" class="container-fluid PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("Pages/UC_Pilars");
+    }
+</div>
+
+<div id="External" class="search_page_template container-fluid PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("Pages/UC_External");
+    }
+</div>
+
+
+@{
+    Html.RenderPartial("UserControls/UC_PopUps");
+}
+
+@section sidebar {
+    @{
+        Html.RenderPartial("UserControls/UC_Menu");
+    }
+}
+
+@section footer {
+    @{
+        Html.RenderPartial("UserControls/UC_Footer");
+    }
+}

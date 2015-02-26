@@ -1,0 +1,38 @@
+﻿
+<div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+        <a class="onClickLinkMenu" href="#Home"><img src="~/Content/img/logo8_large.png" /></a>
+    </div>
+    <div class="col-lg-6 col-md-7 col-sm-9 col-xs-12 search_field">
+        <div class="input-group">
+            <input id="search_field_Ext" type="text" class="form-control input-lg" value="" placeholder="Search Data Marketplace..." />
+            <span class="input-group-btn"><button class="btn btn-primary btn-lg BtnSearch" type="button">Search</button></span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-2">
+        <div class="well well-sm" style="border:none;">
+
+            <iframe style="width: 100%; height:500px" frameborder="0" scrolling="yes" id="myIframe"></iframe>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function CargarLinkExternal(url) {
+        var iframe = document.getElementById('myIframe');
+        
+        $('#myIframe').attr('src', url);
+        iframe.src = iframe.src;
+    }
+
+    function clearIframe()
+    {
+        document.getElementById('myIframe').contentDocument.location.reload(true);
+        $('#myIframe').attr('src', '');
+    }
+
+</script>

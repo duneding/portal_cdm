@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CDMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Sources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Schedule" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastCrawled" Type="datetime" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SourceTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Assembly" Type="nvarchar(max)" />
+    <Property Name="Class" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_DataSource_To_Type_DataSource">
+    <End Role="SourceTypes" Type="Self.SourceTypes" Multiplicity="1" />
+    <End Role="Sources" Type="Self.Sources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SourceTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sources">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CDMModelStoreContainer">
+    <EntitySet Name="Sources" EntityType="Self.Sources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SourceTypes" EntityType="Self.SourceTypes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DataSource_To_Type_DataSource" Association="Self.FK_DataSource_To_Type_DataSource">
+      <End Role="SourceTypes" EntitySet="SourceTypes" />
+      <End Role="Sources" EntitySet="Sources" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

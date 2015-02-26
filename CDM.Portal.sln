@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalApp", "PortalApp\PortalApp.csproj", "{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortalAppWeb", "PortalAppWeb\PortalAppWeb.csproj", "{4B67A961-9CC0-4229-BB9B-0F29C9D69352}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Portal", "Portal", "{A8B030E8-02AA-48E0-A8D7-8B642FFED86D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElasticSearch", "ElasticSearch", "{92EC80D4-0A3B-4BAA-82CB-5DCD70619AA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F10E3202-F16A-4A5B-BD2B-116CCD094BA6}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "..\ElasticSearch\Engine\Engine.csproj", "{439A3DAF-908F-4DD9-94FA-4B6EE266FED6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{DDD6285C-F4FC-4610-B5DD-1DD98D3C3E37}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DataSources", "..\DataBase\DataSources.sqlproj", "{841B4323-93C7-4A77-B3C3-F967BADF4178}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.citrite.net:8080/tfs/wwopscollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PortalApp\\PortalApp.csproj
+		SccProjectTopLevelParentUniqueName1 = CDM.Portal.sln
+		SccProjectName1 = PortalApp
+		SccLocalPath1 = PortalApp
+		SccProjectUniqueName2 = PortalAppWeb\\PortalAppWeb.csproj
+		SccProjectTopLevelParentUniqueName2 = CDM.Portal.sln
+		SccProjectName2 = PortalAppWeb
+		SccLocalPath2 = PortalAppWeb
+		SccProjectUniqueName3 = ..\\ElasticSearch\\Engine\\Engine.csproj
+		SccProjectTopLevelParentUniqueName3 = CDM.Portal.sln
+		SccProjectName3 = ../ElasticSearch/Engine
+		SccLocalPath3 = ..\\ElasticSearch\\Engine
+		SccProjectUniqueName4 = ..\\DataBase\\DataSources.sqlproj
+		SccProjectTopLevelParentUniqueName4 = CDM.Portal.sln
+		SccProjectName4 = ../DataBase
+		SccLocalPath4 = ..\\DataBase
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4B67A961-9CC0-4229-BB9B-0F29C9D69352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B67A961-9CC0-4229-BB9B-0F29C9D69352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B67A961-9CC0-4229-BB9B-0F29C9D69352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B67A961-9CC0-4229-BB9B-0F29C9D69352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439A3DAF-908F-4DD9-94FA-4B6EE266FED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439A3DAF-908F-4DD9-94FA-4B6EE266FED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439A3DAF-908F-4DD9-94FA-4B6EE266FED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439A3DAF-908F-4DD9-94FA-4B6EE266FED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841B4323-93C7-4A77-B3C3-F967BADF4178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841B4323-93C7-4A77-B3C3-F967BADF4178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841B4323-93C7-4A77-B3C3-F967BADF4178}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{841B4323-93C7-4A77-B3C3-F967BADF4178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841B4323-93C7-4A77-B3C3-F967BADF4178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841B4323-93C7-4A77-B3C3-F967BADF4178}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36C3C5D6-FC02-43B2-ACA8-A65C53D8C563} = {A8B030E8-02AA-48E0-A8D7-8B642FFED86D}
+		{4B67A961-9CC0-4229-BB9B-0F29C9D69352} = {A8B030E8-02AA-48E0-A8D7-8B642FFED86D}
+		{439A3DAF-908F-4DD9-94FA-4B6EE266FED6} = {92EC80D4-0A3B-4BAA-82CB-5DCD70619AA8}
+		{841B4323-93C7-4A77-B3C3-F967BADF4178} = {DDD6285C-F4FC-4610-B5DD-1DD98D3C3E37}
+	EndGlobalSection
+EndGlobal

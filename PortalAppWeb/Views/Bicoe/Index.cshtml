@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "BICoE - Search";
+    Layout = "~/Views/Bicoe/_Layout.cshtml";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        ucSearch.SearchBoxShow = false;
+        ucSearch.ChangeImgLogo("Content/img/logo8_bicoe.png");
+        ucSearch.SetHrefLogo('http://office2013.citrite.net/sites/bicoe');
+    });
+</script>
+
+<div id="Home" class="Citropedia PagesDisplayNone" style="display:none;" >
+    @{
+        Html.RenderPartial("Pages/UC_Home");
+    }
+</div>
+
+<div id="Search" class="container-fluid search_page_template PagesDisplayNone bicoe_search">
+    <div class="row search_field_fixed">
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+            <div class="blank_space"></div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12 search_field">
+            <ul class="bicoe_menu top_menu search_page_menu hidden-xs">
+                <li class="btn-home"><a data-image-swap="Content/img/bicoe_our_mission_2.jpg" data-text-swap="our_mission_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a data-image-swap="Content/img/bicoe_our_mission_2.jpg" data-text-swap="our_mission_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe/pages/mission.aspx">Mission</a></li>
+                <li><a data-image-swap="Content/img/bicoe_learning_2.jpg" data-text-swap="learning_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe/pages/learning.aspx">Learning</a></li>
+                <li><a data-image-swap="Content/img/bicoe_governance_2.jpg" data-text-swap="governance_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe/pages/governance.aspx">Governance</a></li>
+                <li><a data-image-swap="Content/img/bicoe_portfolio_roadmap_2.jpg" data-text-swap="portfolio_roadmap_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe/pages/roadmap.aspx">Roadmap</a></li>
+                <li><a data-image-swap="Content/img/bicoe_meeting_calendar_2.jpg" data-text-swap="meeting_calendar_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe/pages/calendar.aspx">Calendar</a></li>
+                <li><a data-image-swap="Content/img/bicoe_success_stories_2.jpg" data-text-swap="success_stories_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe/pages/successstories.aspx">Success Stories</a></li>
+                <li><a data-image-swap="Content/img/bicoe_latest_news_2.jpg" data-text-swap="latest_news_text" class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe/pages/news.aspx">News</a></li>
+                <li class="dropdown">
+                    <a data-image-swap="Content/img/bicoe_our_mission_2.jpg" data-text-swap="home_page_text" href="http://office2013.citrite.net/sites/bicoe" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Quick links</a>
+                    <div class="dropdown-menu" role="menu">
+                        <div><a href="http://office2013.citrite.net/sites/bicoe/Pages/DataSources.aspx" target="_blank" style="background:transparent;color:#000;">Data Sources & BI Landscape</a></div>
+                        <div><a href="http://office2013.citrite.net/sites/bicoe/Pages/Tableau/Tableau-Center-of-Analytics.aspx" target="_blank" style="background:transparent;color:#000;">Tableau Center of Analytics</a></div>
+                    </div>
+                </li>
+            </ul>
+            <div class="input-group">
+                <input id="search_field_SRBC" type="text" class="form-control input-lg SearchText" placeholder="Search Data Marketplace..." />
+                <span class="input-group-btn"><button data-idinputasociate="search_field_SRBC" class="btn btn-info btn-lg BtnSearch" type="button">Search</button></span>
+            </div>
+            <div class="text-right results_q"></div>
+        </div>
+    </div>
+        @{
+            Html.RenderPartial("../Shared/UserControls/UC_Search");
+        }
+</div>
+@section sidebar {
+    @{
+        Html.RenderPartial("UserControls/UC_Menu");
+    }
+}
+
+@section footer {
+    @{
+        Html.RenderPartial("UserControls/UC_Footer");
+    }
+}

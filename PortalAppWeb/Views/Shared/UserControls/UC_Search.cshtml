@@ -1,0 +1,231 @@
+﻿<script src="~/Scripts/ViewsManager/Shared/Search_PartialView.js"></script>
+<script>
+    ucSearch.scope='@ViewBag.Scope';
+</script>
+<!--Este div se borra unicamente cuando se oculta el searchbox-->
+<div id="NotHiddenSearchBox" class="row space"></div>
+<!--in div-->
+<div class="row search_field_fixed">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+    </div>
+    
+    <div id="SearchBox" class="col-lg-8 col-md-8 col-sm-9 col-xs-12 search_field" style="background:#efefef url(Content/img/background1.gif) repeat-x left top;">
+        <div class="input-group">
+            <input id="search_field_SR" type="text" class="form-control input-lg SearchText" value="Marketplace" placeholder="Search Data Marketplace..." />
+            <span class="input-group-btn"><button data-idinputasociate="search_field_SR" class="btn btn-info btn-lg BtnSearch" type="button">Search</button></span>
+        </div>
+        <div class="text-right results_q"></div>
+    </div>
+   
+    
+    <div id="BetaBanner" style="display:none" class="col-lg-2 col-md-8 col-sm-9 col-xs-12 col-lg-offset-10 col-md-offset-3 col-sm-offset-3 beta_banner_search">
+        <a id="beta_banner" class="beta_banner" href="https://backstage.citrix.com/support/help/data-management-requests.html" target="_blank">
+            <div class="image text-center"><img src="Content/img/beta_sign.png" /></div>
+            <div class="text_middle">Click here for help from a Citrix Specialist: <ul><li>locate</li><li>access</li><li>create, or</li><li>analyze data</li></ul></div>
+            <div class="text_bottom text-center">Data Help with data-related issues</div>
+        </a>
+    </div>
+</div>
+
+
+
+   <div class="row logo">
+    <div id="main_logo" class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+        <a id="LinkImgLogoSearch" href="#Home"><img src="Content/img/logo8.png" /></a>
+        <div id="BetaText" style="display:none" class="beta_text"></div>
+    </div>
+</div>
+
+    @*<div class="row" style="height:104px;position:absolute; top:0px;  z-index:99;">
+        <div id="main_logo" class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+            <a class="onClickLinkMenu" href="#Home"><img src="Content/img/logo8.png" /></a>
+            <div class="beta_text"></div>
+        </div>
+    </div>
+    <div class="row" style="height:104px;position:absolute; top:0px;">
+        <div id="citro_logo" class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+            <a class="onClickLinkMenu" href="#Home"><img src="Content/img/logo8_citropedia.png" /></a>
+        </div>
+    </div>
+    <div class="row" style="height:104px;position:absolute; top:0px;z-index:99;">
+        <div id="bicoe_logo" class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+            <a class="onClickLinkMenu" href="http://office2013.citrite.net/sites/bicoe"><img src="Content/img/logo8_bicoe.png" /></a>
+        </div>
+    </div>*@
+    
+    
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+            <div class="search_menu">
+                <div class="panel panel-default panel-sm">
+                    <div class="panel-heading">
+                        Refine Search
+                    </div>
+                    <div class="panel-body text-right refine-search">
+                        <p class="num_results" id="TotalResultsLeft"></p>
+                        <h5 id="byCategory" style="display:none">by Category</h5>
+                        <ul class="filter TypeFilters" id="FilterLeftCategory"></ul>
+                        <h5 id="byDocumentType" style="display:none">by Type</h5>
+                        <ul class="filter DocTypeFilters" id="DocumentTypeFilterLeft"></ul>
+                    </div>
+                </div>
+
+                <div class="panel panel-default panel-sm">
+                    <div class="panel-heading">
+                        Similar searches
+                    </div>
+                    <div class="panel-body">
+                        <ul id="ContontSimilarSearched" class="related"></ul>
+                    </div>
+                </div>
+                <div class="panel panel-default panel-sm">
+                    <div class="panel-heading">
+                        People Also Searched for
+                    </div>
+                    <div class="panel-body">
+                        <ul id="ContontAlsoSearched" class="related"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12 content">
+        <div>
+            <div class="text-center" id="ajaxLoadingSearchResults" style="display:none"><img title="Loading..." src="~/Content/img/ajax_loader_blue_64.gif" /></div>
+            <div id="ResultContent"></div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="text-center col-lg-8 col-md-8 col-sm-9 col-xs-12 col-lg-offset-2 col-md-offset-3 col-sm-offset-3 misc">
+            <ul class="pagination PaginationSearch"></ul>
+            <p id="TotalResultsSearched"></p>
+        </div>
+    </div>
+
+
+
+    <script id="tmpl_searchResultsByRelevance" type="text/x-jsrender">
+        <ul class="search_results">
+            {{for Items tmpl="#tmpl_searchResultsItem" /}}
+        </ul>
+    </script>
+
+    <script id="tmpl_searchResultsByType" type="text/x-jsrender">
+        {{for Items}}        
+        <div style="color:#333;">
+            <span style="display:inline-block; background:#333; padding:1px 10px 1px 38px; color:#fff; box-shadow:0px 5px 5px #999;">
+                {{:Type}}
+            </span>
+            <br />
+            <span class="glyphicon glyphicon-bookmark" style="font-size:20px;margin-right:14px;"></span>
+        </div>        
+        <ul class="search_results">            
+            {{for Items tmpl="#tmpl_searchResultsItem" /}}
+        </ul>
+        {{/for}}
+    </script>
+
+<style>.visible{display:block} .oculto{display:none}
+    </style>
+
+    <script id="tmpl_searchResultsItem" type="text/x-jsrender">
+        <li data-container="body" data-toggle="popover" data-pop-up="popup{{:#index+1}}">            
+            <div>
+                <div class="vv {{if Enable == true}}visible{{else}}oculto{{/if}}">
+                    <h4>
+                        <a title="Remove from favorites" class="bt_star remove_favorites_btn" data-index="{{:Index}}" data-typees="{{:TypeEs}}" data-id="{{:Id}}">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>
+                        </a>
+                        {{:NameHighlight}}
+                    </h4>
+                </div>
+                <div class="nv {{if Enable == false}}visible{{else}}oculto{{/if}}">
+                    <h4>
+                        <a title="Add to Favorites" class="bt_star add_favorites_btn glyphicon glyphicon-star-empty" data-index="{{:Index}}" data-typees="{{:TypeEs}}" data-id="{{:Id}}"></a>
+                        {{:NameHighlight}}
+                    </h4>
+                </div>
+            </div>         
+                {{if DescriptionHighlight}}<p>{{:DescriptionHighlight}}</p>{{/if}}
+                {{if Url}}<a class="external_link" href="{{:Url}}" onclick="ucSearch.UpdateViewCount('{{:Index}}', '{{:TypeEs}}', '{{:Id}}')" target="_blank">{{>Url}}</a>{{/if}}
+                <div class="add_functions">
+                    {{if Url}}<a href="{{include tmpl='#tmpl_searchResultsShareTemplate'/}}"><span class="glyphicon glyphicon-share"></span> Share link</a>{{/if}}
+                    {{if Owner}}<span class="options"><span class="glyphicon glyphicon-user"></span> Owner {{:Owner}}</span>{{/if}}
+                    {{if ~showType}}<span class="options"><span class="glyphicon glyphicon-tag"></span> Category: {{:Type}}</span>{{/if}}
+                    <span class="options"><span class="glyphicon glyphicon-file"></span> Type: {{:DocType}}</span>
+                    @*<a data-toggle="modal" data-target="#required" href="#" class="restricted"><span class="glyphicon glyphicon-ban-circle"></span> Request access</a>*@
+                </div>
+                <div id="popup{{:#index+1}}" class="hide">
+                    <div class="popup_template">
+                        @*<div class="ribbon">
+                        <div class="content">62<br />visits</div>
+                    </div>*@
+                        <div class="links">
+                            <div class="content">
+                                <a href="{{include tmpl='#tmpl_searchResultsShareTemplate'/}}"><span class="glyphicon glyphicon-share"></span> Share link</a>
+                                @*<a data-toggle="modal" data-target="#required" href="#" class="pull-right"><span class="glyphicon glyphicon-ban-circle"></span> Request access</a>*@
+                            </div>
+                        </div>
+                        <div class="content_popup">
+                            <div class="title">
+                                <h4>{{:Name}}</h4>
+                                <i>{{:Type}}</i>
+                            </div>
+                            <div style="width:150px;height:150px;text-align:center;background:#eee;margin-bottom:15px;"><span class="glyphicon glyphicon-signal" style="font-size:110px;line-height:150px; color:#000;"></span></div>
+                            {{if Description}}<p><b>Description</b>: {{:Description}}</p>{{/if}}
+                            {{if Url}}<p><b><span class="glyphicon glyphicon-link"></span> Url: <a href="{{:Url}}" target="_blank">{{>~shortenUrl(Url)}}</a></b></p>{{/if}}
+                            {{if Owner}}<p><b><span class="glyphicon glyphicon-user"></span> Owner: {{>Owner}}</b></p>{{/if}}
+                        </div>
+                    </div>
+                </div>
+</li>
+    </script>
+
+    <script id="tmpl_searchResultsShareTemplate" type="text/x-jsrender">
+        mailto:?subject={{url:"Sharing " + Name + " from Citrix Data Marketplace"}}&body={{url:"To access the file, click on this link: "+Url+"  If a log in is required at any time you are on the Citrix Data Marketplace site, use your Citrix user name and password. If, after accessing the site or performing a search you have any data-related issues, click here for help: https://backstage.citrix.com/support/help/data-management-requests.html"}}
+    </script>
+
+    <script id="tmpl_Pager" type="text/x-jsrender">
+
+        {{for Items}}
+        <li><a class="{{:clases}}" pagenum="{{:PageNum}}" style="cursor:pointer" pageact="{{:PageAct}}" totalpage="{{:TotalPage}}">{{:PageNum}}</a></li>
+        {{/for}}
+
+    </script>
+    <script id="tmpl_TotalResults" type="text/x-jsrender">
+        Results {{: fromPage}} - {{:toPage}} out of {{:TotalResults}} for
+        <b>{{:terms}}</b>
+    </script>
+
+    <script id="tmpl_NoResults" type="text/x-jsrender">
+        @*No Results for
+        <b>{{:terms}}</b>*@
+    </script>
+
+    <script id="tmpl_TotalResultsLeft" type="text/x-jsrender">
+        <b>{{:TotalResults}}</b> results for
+        <br />
+        <b>{{:terms}}</b>
+    </script>
+
+    <script id="tmpl_AddFilter" type="text/x-jsrender">
+        {{for Items}}
+        <li filter="{{:Name}}">{{:Text}}<a class="ClickSuprFiltersUp">[x]</a></li>
+        {{/for}}
+    </script>
+
+    <script id="tmpl_AddLeftFilter" type="text/x-jsrender">
+        {{for Items}}
+        <li class="BtnFiltros {{: Value}}" data-keyfilter="{{: Value}}">
+            {{: Text}} [{{:Cant}}]
+            <span class="glyphicon glyphicon-remove"></span>
+        </li>
+        {{/for}}
+    </script>
+
+<script id="tmpl_AlsoSearched" type="text/x-jsrender">
+    {{for Items}}
+    <li><a class="btnAlsoSearched" href="#Search?terms={{:encodedTerm}}" data-valuesearched="{{:term}}">{{:term}}</a></li>
+    {{/for}}
+</script>

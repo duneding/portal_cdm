@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B67A961-9CC0-4229-BB9B-0F29C9D69352}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CDM.Portal.PortalAppWeb</RootNamespace>
+    <AssemblyName>CDM.Portal.PortalAppWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>%24/Infomanagement/Projects/CDM/Portal/PortalAppWeb</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://tfs13.citrite.net:8080/tfs/wwopscollection</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=69c3241e6f0468ca, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=15.0.0.0">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=15.0.0.0">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BicoeController.cs" />
+    <Compile Include="Controllers\CitropediaController.cs" />
+    <Compile Include="Controllers\DataSourcesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportsDashboardsController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Filters\SharePointContextFilterAttribute.cs" />
+    <Compile Include="Filters\URLContextFilterAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\JTokenExtensions.cs" />
+    <Compile Include="Models\CDMPortal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDMPortal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CDMPortal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDMPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CDMPortal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDMPortal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomEntities\CustomCast.cs" />
+    <Compile Include="Models\CustomEntities\ItemDataSources.cs" />
+    <Compile Include="Models\CustomEntities\ItemsAlsoSearched.cs" />
+    <Compile Include="Models\CustomEntities\ItemSearchResult.cs" />
+    <Compile Include="Models\CustomEntities\TypeFiltersSearch.cs" />
+    <Compile Include="Models\CustomEntities\TypeSearchResult.cs" />
+    <Compile Include="Models\DAL.cs" />
+    <Compile Include="Models\GAUser.cs">
+      <DependentUpon>CDMPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Source.cs">
+      <DependentUpon>CDMPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SourceType.cs">
+      <DependentUpon>CDMPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharePointContext.cs" />
+    <Compile Include="TokenHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap1.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\fonts\CitrixSans-Light.svg" />
+    <Content Include="Content\fonts\CitrixSans-Regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\ajax_loader_blue_64.gif" />
+    <Content Include="Content\img\arrow_top.png" />
+    <Content Include="Content\img\a_banner1.jpg" />
+    <Content Include="Content\img\a_banner2.jpg" />
+    <Content Include="Content\img\a_banner3.jpg" />
+    <Content Include="Content\img\background1.gif" />
+    <Content Include="Content\img\back_image4.jpg" />
+    <Content Include="Content\img\beta_sign.png" />
+    <Content Include="Content\img\beta_sign_play.png" />
+    <Content Include="Content\img\beta_sign_small.png" />
+    <Content Include="Content\img\bicoe_governance.jpg" />
+    <Content Include="Content\img\bicoe_governance_2.jpg" />
+    <Content Include="Content\img\bicoe_home_2.jpg" />
+    <Content Include="Content\img\bicoe_latest_news.jpg" />
+    <Content Include="Content\img\bicoe_latest_news_2.jpg" />
+    <Content Include="Content\img\bicoe_learning.jpg" />
+    <Content Include="Content\img\bicoe_learning_2.jpg" />
+    <Content Include="Content\img\bicoe_learning_thumb_img_01.jpg" />
+    <Content Include="Content\img\bicoe_learning_thumb_img_02.jpg" />
+    <Content Include="Content\img\bicoe_learning_thumb_img_03.jpg" />
+    <Content Include="Content\img\bicoe_learning_thumb_img_04.jpg" />
+    <Content Include="Content\img\bicoe_logo.jpg" />
+    <Content Include="Content\img\bicoe_logo.png" />
+    <Content Include="Content\img\bicoe_meeting_calendar.jpg" />
+    <Content Include="Content\img\bicoe_meeting_calendar_2.jpg" />
+    <Content Include="Content\img\bicoe_our_mission.jpg" />
+    <Content Include="Content\img\bicoe_our_mission_2.jpg" />
+    <Content Include="Content\img\bicoe_our_mission_image1.jpg" />
+    <Content Include="Content\img\bicoe_our_mission_image1.png" />
+    <Content Include="Content\img\bicoe_portfolio_image1.jpg" />
+    <Content Include="Content\img\bicoe_portfolio_image2.jpg" />
+    <Content Include="Content\img\bicoe_portfolio_roadmap.jpg" />
+    <Content Include="Content\img\bicoe_portfolio_roadmap_2.jpg" />
+    <Content Include="Content\img\bicoe_success_stories.jpg" />
+    <Content Include="Content\img\bicoe_success_stories_2.jpg" />
+    <Content Include="Content\img\bicoe_success_stories_image1.jpg" />
+    <Content Include="Content\img\citro_logo1.png" />
+    <Content Include="Content\img\c_banner1.jpg" />
+    <Content Include="Content\img\c_banner1_bicoe.jpg" />
+    <Content Include="Content\img\c_banner1_citropedia.jpg" />
+    <Content Include="Content\img\c_banner2.jpg" />
+    <Content Include="Content\img\c_banner3.jpg" />
+    <Content Include="Content\img\c_banner4.jpg" />
+    <Content Include="Content\img\data_source_logo1.png" />
+    <Content Include="Content\img\dot_menu.png" />
+    <Content Include="Content\img\logo4.png" />
+    <Content Include="Content\img\logo4_2.png" />
+    <Content Include="Content\img\logo8.png" />
+    <Content Include="Content\img\logo8_bicoe.png" />
+    <Content Include="Content\img\logo8_cdm.png" />
+    <Content Include="Content\img\logo8_citropedia.png" />
+    <Content Include="Content\img\logo8_citropedia_large.png" />
+    <Content Include="Content\img\logo8_data_sources.png" />
+    <Content Include="Content\img\logo8_data_source_large.png" />
+    <Content Include="Content\img\logo8_large.png" />
+    <Content Include="Content\img\logo8_reports_dashboards.png" />
+    <Content Include="Content\img\logo8_reports_dashboards_large.png" />
+    <Content Include="Content\img\menu_background.png" />
+    <Content Include="Content\img\old_bicoe_learning_2.jpg" />
+    <Content Include="Content\img\old_bicoe_our_mission_2.jpg" />
+    <Content Include="Content\img\old_bicoe_success_stories_2.jpg" />
+    <Content Include="Content\img\old_c_banner4.jpg" />
+    <Content Include="Content\img\pilars_banner_2.png" />
+    <Content Include="Content\img\reports_dashboards_logo1.png" />
+    <Content Include="Content\img\ribbon_back_center.gif" />
+    <Content Include="Content\img\ribbon_back_left.gif" />
+    <Content Include="Content\img\ribbon_back_right.gif" />
+    <Content Include="Content\img\ribbon_back_xs.gif" />
+    <Content Include="Content\img\ribbon_back_xs_2.gif" />
+    <Content Include="Content\img\ribbon_bottom.gif" />
+    <Content Include="Content\img\ribbon_bottom.png" />
+    <Content Include="Content\img\site-help-1.jpg" />
+    <Content Include="Content\img\site-help-2.jpg" />
+    <Content Include="Content\img\site-help-3.jpg" />
+    <Content Include="Content\img\tickets_bottom.png" />
+    <Content Include="Content\img\tickets_bottom_xs.png" />
+    <Content Include="Content\img\tickets_left_right4.png" />
+    <Content Include="Content\img\tickets_left_right5.png" />
+    <Content Include="Content\img\tickets_left_right_xs.png" />
+    <Content Include="Content\img\tickets_left_right_xs_2.png" />
+    <Content Include="Content\img\v-c_banner1.jpg" />
+    <Content Include="Scripts\ajaxForms.js" />
+    <Content Include="Scripts\encoder.js" />
+    <Content Include="Scripts\gaCitrix.js" />
+    <Content Include="Scripts\JsRender.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\additional-methods.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\additional-methods.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\jquery.validate.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ar.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ar.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_bg.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_bg.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ca.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ca.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_cs.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_cs.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_da.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_da.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_de.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_de.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_el.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_el.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_es.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_es.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_es_AR.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_es_AR.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_et.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_et.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_eu.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_eu.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_fa.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_fa.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_fi.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_fi.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_fr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_fr.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_gl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_gl.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_he.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_he.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_hr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_hr.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_hu.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_hu.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_id.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_id.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_is.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_is.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_it.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_it.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ja.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ja.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ka.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ka.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_kk.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_kk.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ko.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ko.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_lt.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_lt.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_lv.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_lv.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_my.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_my.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_nl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_nl.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_no.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_no.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_pl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_pl.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_pt_BR.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_pt_BR.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_pt_PT.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_pt_PT.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ro.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ro.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ru.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_ru.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_si.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_si.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sk.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sk.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sl.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sr.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sr_lat.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sr_lat.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sv.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_sv.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_th.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_th.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_tj.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_tj.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_tr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_tr.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_uk.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_uk.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_vi.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_vi.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_zh.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_zh.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_zh_TW.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\messages_zh_TW.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_de.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_de.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_es_CL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_es_CL.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_fi.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_fi.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_nl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_nl.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_pt.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\dist\localization\methods_pt.min.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\Gruntfile.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery-1.11.1.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery-1.7.2.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery.form.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery.mockjax.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\jquery.simulate.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\lib\require.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\accept.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\additional.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\alphanumeric.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\bankaccountNL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\bankorgiroaccountNL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\bic.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\cifES.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\creditcardtypes.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\currency.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\dateFA.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\dateITA.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\dateNL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\extension.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\giroaccountNL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\iban.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\integer.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\ipv4.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\ipv6.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\lettersonly.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\letterswithbasicpunc.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\mobileNL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\mobileUK.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\nieES.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\nifES.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\nowhitespace.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\pattern.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\phoneNL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\phonesUK.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\phoneUK.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\phoneUS.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\postalCodeCA.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\postalcodeIT.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\postalcodeNL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\postcodeUK.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\require_from_group.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\skip_or_fill_minimum.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\statesUS.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\strippedminlength.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\time.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\time12h.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\url2.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\vinUS.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\zipcodeUS.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\additional\ziprange.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\ajax.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\core.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\delegate.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_ar.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_bg.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_ca.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_cs.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_da.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_de.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_el.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_es.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_es_AR.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_et.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_eu.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_fa.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_fi.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_fr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_gl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_he.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_hr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_hu.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_id.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_is.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_it.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_ja.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_ka.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_kk.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_ko.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_lt.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_lv.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_my.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_nl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_no.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_pl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_pt_BR.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_pt_PT.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_ro.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_ru.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_si.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_sk.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_sl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_sr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_sr_lat.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_sv.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_th.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_tj.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_tr.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_uk.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_vi.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_zh.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\messages_zh_TW.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\methods_de.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\methods_es_CL.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\methods_fi.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\methods_nl.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\src\localization\methods_pt.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\aria.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\error-placement.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\index.html" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\messages.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\methods.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\qunit\qunit.css" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\qunit\qunit.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\rules.js" />
+    <Content Include="Scripts\jquery-validation-1.13.0\test\test.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="CDM.snk" />
+    <Content Include="Content\fonts\CitrixSans-Light.eot" />
+    <Content Include="Content\fonts\CitrixSans-Light.ttf" />
+    <Content Include="Content\fonts\CitrixSans-Light.woff" />
+    <Content Include="Content\fonts\CitrixSans-Regular.eot" />
+    <Content Include="Content\fonts\CitrixSans-Regular.ttf" />
+    <Content Include="Content\fonts\CitrixSans-Regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\CitrixSans-Light.woff2" />
+    <Content Include="Content\fonts\CitrixSans-Regular.woff2" />
+    <EntityDeploy Include="Models\CDMPortal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CDMPortal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CDMPortal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CDMPortal.edmx</DependentUpon>
+      <LastGenOutput>CDMPortal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CDMPortal.edmx.diagram">
+      <DependentUpon>CDMPortal.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CDMPortal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CDMPortal.edmx</DependentUpon>
+      <LastGenOutput>CDMPortal.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\datamarket-464.pubxml" />
+    <None Include="Properties\PublishProfiles\datamarket-465.pubxml" />
+    <None Include="Properties\PublishProfiles\datamarketdemo-464.pubxml" />
+    <None Include="Properties\PublishProfiles\datamarketdemo-465.pubxml" />
+    <None Include="Properties\PublishProfiles\datamarketdev-465.pubxml" />
+    <None Include="Properties\PublishProfiles\datamarketdev-464.pubxml" />
+    <None Include="Properties\PublishProfiles\dev-output.pubxml" />
+    <None Include="Properties\PublishProfiles\DEV-Tellago.pubxml" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <Content Include="Scripts\jquery-validation-1.13.0\package.json" />
+    <Content Include="Scripts\jquery-validation-1.13.0\README.md" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\spcontext.js" />
+    <Content Include="Scripts\typeahead.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\Calendar_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\Governance_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\Home_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\Learning_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\Mission_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\News_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\Roadmap_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Bicoe\Stories_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Citropedia\Home_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Admin\DataSources_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\HashManager.js" />
+    <Content Include="Scripts\ViewsManager\Home\Help_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Home\Home_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Home\Pilars_PartialView.js" />
+    <Content Include="Scripts\ViewsManager\Shared\Search_PartialView.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Pages\UC_Home.cshtml" />
+    <Content Include="Views\Admin\Pages\UC_Home.cshtml" />
+    <Content Include="Views\Shared\UserControls\UC_Search.cshtml" />
+    <Content Include="Views\Home\UserControls\UC_Menu.cshtml" />
+    <Content Include="Views\Home\Pages\UC_External.cshtml" />
+    <Content Include="Views\Home\UserControls\UC_PopUps.cshtml" />
+    <Content Include="Views\Citropedia\Index.cshtml" />
+    <Content Include="Views\Citropedia\UserControls\UC_Menu.cshtml" />
+    <Content Include="Views\Citropedia\Pages\UC_Home.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\UserControls\UC_Menu.cshtml" />
+    <Content Include="Views\Admin\UserControls\UC_PopUps.cshtml" />
+    <Content Include="Views\Bicoe\Pages\UC_Home.cshtml" />
+    <Content Include="Views\Bicoe\UserControls\UC_Menu.cshtml" />
+    <Content Include="Views\Bicoe\Index.cshtml" />
+    <Content Include="Views\Home\Pages\UC_Help.cshtml" />
+    <Content Include="Views\Home\Pages\UC_Pilars.cshtml" />
+    <Content Include="Views\Bicoe\_Layout.cshtml" />
+    <Content Include="Views\Home\UserControls\UC_Footer.cshtml" />
+    <Content Include="Views\Bicoe\UserControls\UC_Footer.cshtml" />
+    <Content Include="Views\Citropedia\UserControls\UC_Footer.cshtml" />
+    <Content Include="Views\DataSources\Index.cshtml" />
+    <Content Include="Views\DataSources\Pages\UC_Home.cshtml" />
+    <Content Include="Views\DataSources\UserControls\UC_Menu.cshtml" />
+    <Content Include="Views\DataSources\UserControls\UC_Footer.cshtml" />
+    <Content Include="Views\ReportsDashboards\Index.cshtml" />
+    <Content Include="Views\ReportsDashboards\Pages\UC_Home.cshtml" />
+    <Content Include="Views\ReportsDashboards\UserControls\UC_Footer.cshtml" />
+    <Content Include="Views\ReportsDashboards\UserControls\UC_Menu.cshtml" />
+    <None Include="Web.Beta.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Demo.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.PRD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\themes\base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ElasticSearch\Engine\Engine.csproj">
+      <Project>{439a3daf-908f-4dd9-94fa-4b6ee266fed6}</Project>
+      <Name>Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CDM.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'CitroTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Demo|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Demo\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PRD|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\PRD\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Beta|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Beta\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55958</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55958/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

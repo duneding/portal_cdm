@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script type="text/javascript">
+    HashManager.DefaultPage = 'DataSources';
+</script>
+
+
+
+
+
+
+<div id="DataSources" class="container-fluid search_page_template PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("Pages/UC_Home");
+    }
+</div>
+
+
+
+@section sidebar {
+    @{
+        Html.RenderPartial("UserControls/UC_Menu");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

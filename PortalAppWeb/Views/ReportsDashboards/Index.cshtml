@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Reports Dashboards - Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script type="text/javascript">
+
+    $(function () {
+        ucSearch.ChangeImgLogo('Content/img/logo8_large.png');
+        ucSearch.SetHrefLogo('#Home');
+        ucSearch.ForceCategories = 'reports';
+    });
+
+</script>
+
+
+<div id="Home" class="Citropedia PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("Pages/UC_Home");
+    }
+</div>
+
+<div id="Search" class="container-fluid search_page_template PagesDisplayNone" style="display:none;">
+    @{
+        Html.RenderPartial("../Shared/UserControls/UC_Search");
+    }
+</div>
+
+
+@section sidebar {
+    @{
+        Html.RenderPartial("UserControls/UC_Menu");
+    }
+}
+
+@section footer {
+    @{
+        Html.RenderPartial("UserControls/UC_Footer");
+    }
+}
+

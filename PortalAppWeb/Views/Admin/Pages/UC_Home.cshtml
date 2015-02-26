@@ -1,0 +1,191 @@
+﻿
+<script src="~/Scripts/ViewsManager/Admin/DataSources_PartialView.js"></script>
+<div>
+    @*<script type="text/javascript">
+
+            $(document).ready(function () {
+
+                GrillaDataSources();
+
+                $('#Btn_NewDAtasource').click(function () {
+                    ClearFrm();
+                    $('#myModalLabel').html('New Data Source');
+                    $("#frmAM_DataSource").resetForm();
+                    $('#PopUpAM_Datasource').modal('show');
+                });
+
+                LlenarSelect();
+
+                $('.RadioButtonsCredentials').change(function () {
+                    var val = $(this).val();
+                    var Muestra = 'block';
+                    if (val == "Current") {
+                        Muestra = 'none';
+                    }
+                    $('.OcultarCredentials').css('display', Muestra);
+                });
+
+
+
+                $('#BtnEliminaDAtaSources').click(function () {
+                    var id = $(this).attr('idDS');
+
+                });
+
+                $('#FilterDataSources').click(function () {
+                    GrillaDataSources();
+                    $('#Btn_ClearFiltros').css('display', 'block');
+                });
+
+                $('#Btn_ClearFiltros').click(function () {
+                    $('#Btn_ClearFiltros').css('display', 'none');
+                    $('#NameFilter').val("");
+
+                    $('#TypeDs_Search').val("");
+                    GrillaDataSources();
+                });
+
+            });
+
+            function ClearFrm() {
+                $('#IdDataSource').val('');
+                $('#Name').val('');
+                $('#Adress').val('');
+                $('#UserName').val('');
+                $('#Password').val('');
+                $('#Squedule').val('');
+            }
+
+            function GetParametrosFiltro() {
+                return '?Name=' + $('#NameFilter').val() + '&Type=' + $('#TypeDs_Search').val();
+            }
+
+
+
+
+
+        </script>*@
+
+</div>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#NewDataSources').click(function () {
+            LimpiarFormulario();
+        });
+
+
+
+    });
+
+    function LimpiarFormulario() {
+        $('#myModalLabel').html('New Data Source');
+        $('#IdDataSource').val('');
+        $('#Name').val('');
+        $('#Adress').val('');
+        $('#UserName').val('');
+        $('#Password').val('');
+        $('#Schedule').val('');
+    }
+
+</script>
+
+<div class="row space">
+</div>
+<div class="row search_field_fixed">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12 search_field">
+        <div class="input-group">
+            <input id="search_field_DSTop" type="text" class="form-control input-lg SearchText" value="Marketplace" placeholder="Search Data Marketplace..." />
+            <span class="input-group-btn"><button data-idinputasociate="search_field_DSTop" class="btn btn-info btn-lg BtnSearch" type="button">Search</button></span>
+        </div>
+    </div>
+</div>
+<div class="row logo">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
+        <a class="onClickLinkMenu" href="#Home"><img src="Content/img/logo8.png" /></a><div class="beta_text"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 text-center">
+        <div class="search_menu">
+            <div class="panel panel-default panel-sm">
+                <div class="panel-heading titulo_secc">
+                    Administration
+                </div>
+                <div class="panel-body data_source_menu">
+                    <a id="NewDataSources" href="#" data-toggle="modal" data-target="#PopUpAM_Datasource"><span class="glyphicon glyphicon-file"></span><br />New Data Source</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12 content">
+        <div>
+            <div class="text-center" id="ajaxLoadingDataSourcesResults" style="display:none"><img title="Loading..." src="~/Content/img/ajax_loader_blue_64.gif" /></div>
+            <ul id="ResultListDataSources" class="search_results data_source_section"></ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center col-lg-6 col-md-7 col-sm-9 col-xs-12 col-lg-offset-2 col-md-offset-3 col-sm-offset-3 misc">
+        <ul class="pagination PaginationSearch"></ul>
+    </div>
+</div>
+
+
+<script id="DataSourcesList" type="text/x-jsrender">
+    {{for Items}}
+    <li>
+        <div class="edit_menu">
+            @*Boton Editar*@
+            <a href="#" data-iddatasource="{{:id}}" data-toggle="modal" data-target="#PopUpAM_Datasource" class="edit EditDataSources">
+                <span class="glyphicon glyphicon-edit"></span>
+                <span class="text">Edit</span>
+            </a>
+            @*fin Boton Editar*@
+            @*Boton Borrar*@
+            <a href="#" data-iddatasource="{{:id}}" data-toggle="modal" data-target="#remove_alert" class="remove RemoveDataSource">
+                <span class="glyphicon glyphicon-remove-circle"></span>
+                <span class="text">Remove</span>
+            </a>
+            @*Fin Boton Borrar*@
+        </div>
+        <h4>Data <b>Marketplace</b> {{:Name}}</h4>
+        <i>Source: {{:Type}}</i>
+        <p>{{: Description}}</p>
+        <p><b><span class="glyphicon glyphicon-calendar"></span> Schedule {{:ScheduleCant}} {{:ScheduleUnit}}</b></p>
+        Address: <a class="external_link" href="{{:Adress}}">{{:Adress}}</a>
+    </li>
+    {{/for}}
+</script>
+
+<script id="tmpl_Pager" type="text/x-jsrender">
+
+    {{for Items}}
+    <li><a class="{{:clases}}" pagenum="{{:PageNum}}" style="cursor:pointer" pageact="{{:PageAct}}" totalpage="{{:TotalPage}}">{{:PageNum}}</a></li>
+    {{/for}}
+    <li style="top:6px;cursor:default;position:relative;">Total Pages: {{:TotalPages}}</li>
+</script>
+
+@{
+    Html.RenderPartial("UserControls/UC_PopUps");
+}
+
+<script id="tmpl_AddFilter" type="text/x-jsrender">
+    {{for Items}}
+    <li filter="{{:Name}}">{{:Text}}<a class="ClickSuprFiltersUp">[x]</a></li>
+    {{/for}}
+</script>
+
+<script id="tmpl_AddLeftFilter" type="text/x-jsrender">
+    {{for Items}}
+    <li><a class="BtnFiltros {{: Value}}" namefilter="{{: Text}}" filter="{{: Value}}">{{: Text}}</a></li>
+    {{/for}}
+</script>

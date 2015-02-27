@@ -48,7 +48,8 @@ namespace CDM.Portal.PortalAppWeb.Controllers
             ,string docTypes
             ,string fIdx
             ,string fTyp
-            ,string fDocTyp            
+            ,string fDocTyp
+            ,bool bookmarksMode = false
             )
         {
             var user = ViewBag.Username as String;
@@ -99,6 +100,11 @@ namespace CDM.Portal.PortalAppWeb.Controllers
             {
                 criteria.Indexes = new List<string> { scope };
             }
+
+            //Bookmarks Mode
+            if (bookmarksMode)
+               criteria.BookmarksUser = user.ToLower();                
+                            
 
             var esResult = engine.Search(searchTerms, criteria);
 
@@ -364,8 +370,9 @@ namespace CDM.Portal.PortalAppWeb.Controllers
 
         private bool ContainsBookmark(String user, JToken r)
         {
-            if (r.ReadAsString("_source/_bookmarks") != null)
-                return r.ReadAsString("_source/_bookmarks").Contains(user + "\"");
+            var bookmarks = r.ReadAsStringArray("_source/_bookmarks");
+            if (bookmarks != null)
+                return bookmarks.Contains(user.ToLower());
             else
                 return false;
         }

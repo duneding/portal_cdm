@@ -27,11 +27,18 @@ var HashManager = {
             Name: this.DefaultPage,//es el nombre del objeto que posee los metodos Load, Reload, Unload
             Parameters: ''
         }
-        if ((PartsUrl.length == 1) && (PartsUrl[0] != '')) {
+        if (PartsUrl.length > 0 && PartsUrl[0].length > 0) {
             PartialView.Name = PartsUrl[0];
+
+            // Use search control for bookmarks with a different mode
+            if(PartialView.Name == "Search")
+                ucSearch.BookmarksMode = false;
+            else if (PartialView.Name == "Bookmarks") {
+                PartialView.Name = "Search";
+                ucSearch.BookmarksMode = true;
+            }
         }
-        else if (PartsUrl.length > 1) {
-            PartialView.Name = PartsUrl[0];
+        if (PartsUrl.length > 1) {
             PartialView.Parameters = PartsUrl[1];
         }
 
@@ -88,6 +95,8 @@ var HashManager = {
 
         var found = false;
         
+
+
         for (var i = 0; i < this._Registers.length; i++) {
             var oneUC = {
                 obj: {
@@ -98,8 +107,8 @@ var HashManager = {
             $.extend(oneUC, this._Registers[i]);
             if (oneUC.Key == PartialView.Name) {
                 oneUC.obj.Load(PartialView.Parameters);
-                if(PartialView.Name != "Search") {
-                 //   GaCitrix.RegisterView(PartialView.Name, ucSearch.scope);
+                if(PartialView.Name != "Search" && PartialView.Name != "Bookmarks") {
+                    GaCitrix.RegisterView(PartialView.Name, ucSearch.scope);
                 }
                 found = true;
                 break;

@@ -255,6 +255,9 @@ a{
 .search_page_template .content .search_results li{
 	margin-bottom:40px; display:block; border-left:5px solid #000; border-right:1px solid #000; padding:6px 10px 12px 20px; margin-left:4px; color:#000; overflow:hidden; height:100%; 
 }
+.search_page_template .content .search_results li h4 .glyphicon{
+	font-size:14px;
+}
 #Search.search_page_template .content .search_results li, #OData.search_page_template .content .search_results li, #Favorites.search_page_template .content .search_results li{
 	margin-bottom:12px; display:block; border-left:5px solid #326195; border-right:1px solid #326195; padding:2px 10px 12px 20px; margin-left:4px; color:#000; 
 }
@@ -567,6 +570,9 @@ a{
 }
 #Site-Help .text-help1, #Site-Help .text-help2{
 	text-align:center; 
+}
+#Site-Help .text-help2 .contact a{
+	font-size:16px; line-height:20px;
 }
 #Pilars .container3{
 	padding:0px 40px; font-size:16px; line-height:20px; 

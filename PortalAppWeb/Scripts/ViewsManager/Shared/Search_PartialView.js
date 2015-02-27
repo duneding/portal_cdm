@@ -2,6 +2,7 @@
 
 var ucSearch = {
     NameContainer: 'Search',
+    BookmarksMode: false,
     scope: '',
     /*
         SortBy: este metodo retorna el valor de ordenamiento del result del metodo Search
@@ -23,7 +24,7 @@ var ucSearch = {
         es nuevo y false cc.
     */
     Aggregate: function(){
-        return (this._OldTerms != this._NewTerms);
+        return (!this.BookmarksMode && this._OldTerms != this._NewTerms);
     },
     SearchBoxShow: true,
     ForceIndexes: '',
@@ -71,6 +72,10 @@ var ucSearch = {
         anteriormente obtenidos.
     */
     Load: function (parameters) {
+        $("#panel_similar_searches").toggle(!ucSearch.BookmarksMode);
+        $("#panel_people_also").toggle(!ucSearch.BookmarksMode);
+        $("#panel_refine_search").toggle(!ucSearch.BookmarksMode);
+        $("#panel_bookmarks").toggle(ucSearch.BookmarksMode);
 
         var Params = parameters.split('&');
         var textSearch = "";
@@ -139,7 +144,8 @@ var ucSearch = {
             filAgg: config.filAgg,
             fIdx: ucSearch.ForceIndexes,
             fTyp: ucSearch.ForceCategories,
-            fDocTyp: ucSearch.ForceDocumentTypes
+            fDocTyp: ucSearch.ForceDocumentTypes,
+            bookmarksMode:ucSearch.BookmarksMode
         };
         this._CompletInputSearchBox(config.TextSearch);
         $("#ResultContent").fadeOut(500, function () {

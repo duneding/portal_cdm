@@ -9,7 +9,7 @@
     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 logo">
     </div>
     
-    <div id="SearchBox" class="col-lg-8 col-md-8 col-sm-9 col-xs-12 search_field" style="background:#efefef url(Content/img/background1.gif) repeat-x left top;">
+    <div id="SearchBox" class="col-lg-8 col-md-8 col-sm-9 col-xs-12 content search_field" style="background:#efefef url(Content/img/background1.gif) repeat-x left top;">
         <div class="input-group">
             <input id="search_field_SR" type="text" class="form-control input-lg SearchText" value="Marketplace" placeholder="Search Data Marketplace..." />
             <span class="input-group-btn"><button data-idinputasociate="search_field_SR" class="btn btn-info btn-lg BtnSearch" type="button">Search</button></span>
@@ -56,7 +56,12 @@
     
     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
             <div class="search_menu">
-                <div class="panel panel-default panel-sm">
+                <div class="panel panel-default panel-sm" id="panel_bookmarks">
+                    <div class="panel-heading titulo_secc">
+                        My Bookmarks
+                    </div>
+                </div>
+                 <div class="panel panel-default panel-sm" id="panel_refine_search">
                     <div class="panel-heading">
                         Refine Search
                     </div>
@@ -69,7 +74,7 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default panel-sm">
+                <div class="panel panel-default panel-sm" id="panel_similar_searches">
                     <div class="panel-heading">
                         Similar searches
                     </div>
@@ -77,7 +82,7 @@
                         <ul id="ContontSimilarSearched" class="related"></ul>
                     </div>
                 </div>
-                <div class="panel panel-default panel-sm">
+                <div class="panel panel-default panel-sm" id="panel_people_also">
                     <div class="panel-heading">
                         People Also Searched for
                     </div>
@@ -194,8 +199,10 @@
 
     </script>
     <script id="tmpl_TotalResults" type="text/x-jsrender">
-        Results {{: fromPage}} - {{:toPage}} out of {{:TotalResults}} for
-        <b>{{:terms}}</b>
+        Results {{: fromPage}} - {{:toPage}} out of {{:TotalResults}} 
+        {{if terms != ''}}
+        for
+        <b>{{:terms}}</b>{{/if}}
     </script>
 
     <script id="tmpl_NoResults" type="text/x-jsrender">
@@ -204,9 +211,12 @@
     </script>
 
     <script id="tmpl_TotalResultsLeft" type="text/x-jsrender">
-        <b>{{:TotalResults}}</b> results for
+        <b>{{:TotalResults}}</b> 
+        {{if TotalResults != 1}}results{{else}}result{{/if}}
+        {{if terms != ''}}
+        for
         <br />
-        <b>{{:terms}}</b>
+        <b>{{:terms}}</b>{{/if}}
     </script>
 
     <script id="tmpl_AddFilter" type="text/x-jsrender">
